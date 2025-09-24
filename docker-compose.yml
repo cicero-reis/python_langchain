@@ -1,0 +1,36 @@
+networks:
+  python_langchain:
+    driver: bridge
+
+volumes:
+  ollama:
+    name: ollama
+    driver: local
+
+services:
+  langchain:
+    image: ciceroreis/langchain
+    container_name: langchain
+    depends_on:
+      - ollama
+    user: ${UID}:${GID}
+    environment:
+      - OLLAMA_HOST=http://ollama:11434
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    working_dir: /app
+    networks:
+      - python_langchain
+
+  ollama:
+    image: ollama/ollama
+    container_name: ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama:/root/.ollama
+    entrypoint: ["ollama", "serve"]
+    networks:
+      - python_langchain

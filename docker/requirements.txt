@@ -1,0 +1,17 @@
+fastapi
+requests==2.31.0
+uvicorn[standard]
+numpy
+
+# Firebase / Auth
+PyJWT==2.3.0
+python-dotenv==0.19.0
+
+# LangChain
+langchain==0.2.7
+langchain-community==0.2.7
+ollama==0.1.7   # se for rodar modelos locais
+
+# Utils
+pytz==2022.1
+Werkzeug==2.0.1
