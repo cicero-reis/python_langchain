@@ -23,40 +23,4 @@ class AnalyticsService:
                 user_stats[user_id]["late"] += 1
 
         return user_stats
-
-# from datetime import datetime
-
-# def calculate_task_stats(tasks):
-#     results = {}
-
-#     for task in tasks:
-#         user_id = task["user_id"]
-#         due_date = datetime.fromisoformat(task["due_date"])
-#         completed_at = task.get("completed_at")
-
-#         if user_id not in results:
-#             results[user_id] = {
-#                 "total": 0,
-#                 "on_time": 0,
-#                 "late": 0,
-#                 "pending": 0,
-#                 "percent_on_time": 0.0
-#             }
-
-#         results[user_id]["total"] += 1
-
-#         if completed_at:
-#             completed_dt = datetime.fromisoformat(completed_at)
-#             if completed_dt <= due_date:
-#                 results[user_id]["on_time"] += 1
-#             else:
-#                 results[user_id]["late"] += 1
-#         else:
-#             results[user_id]["pending"] += 1
-
-#     # calcular percentuais
-#     for user_id, stats in results.items():
-#         if stats["total"] > 0:
-#             stats["percent_on_time"] = round((stats["on_time"] / stats["total"]) * 100, 2)
-
-#     return results
+    

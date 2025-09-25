@@ -33,6 +33,6 @@ def get_routes(llm):
         """
         Gera um resumo em linguagem natural para o usuário usando LangChain
         """
-        return {"summary": llm_service.generate_summary(request.user_id, request.task_summary)}
+        return {"summary": llm_service.handle(request.user_id, request.task_summary)}
 
     return router
