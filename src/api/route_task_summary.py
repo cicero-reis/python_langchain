@@ -9,7 +9,7 @@ def get_route_task_summary(llm):
 
     router = APIRouter()
     
-    @router.post('/tasksummary')
+    @router.post('/feedback')
     def feedback(
         request: TaskSummary,
         service: TaskSummartLLMService = Depends(lambda: get_task_summart_llm_service(llm))):
